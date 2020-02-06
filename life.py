@@ -24,7 +24,7 @@ def sim_step(alive_coords: set) -> set:
         return chain.from_iterable([neighbors(x,y) for x,y in alive_coords])
     
     def neighbors(x,y):
-        return [(x+x1,y+y1) for x1 in range(-1,2) for y1 in range(-1,2) if not (x1==0 and y1==0)]
+        return [(x+x1,y+y1) for x1 in [-1,0,1] for y1 in [-1,0,1] if not (x1==0 and y1==0)]
   
     def life(coord,neighbors):
         return neighbors == 3 or (neighbors == 2 and coord in alive_coords)
